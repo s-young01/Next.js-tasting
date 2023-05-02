@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Link from "next/link";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className="navbar">
+          <Link href="/">Home</Link>
+          <Link href="/list">상품목록</Link>
+          <Link href="/cart">장바구니</Link>
+        </div>
+        {/* page.js가 들어가는 부분 */}
+        {children} 
+      </body>
     </html>
   )
 }
